@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FrameRangeSeekBar">
+        <!-- 최소범위 -->
+        <attr name="absoluteMinValue" format="integer|float" />
+
+        <!-- 최대범위 -->
+        <attr name="absoluteMaxValue" format="integer|float" />
+
+        <!-- 최소범위 -->
+        <attr name="absoluteSlowMinValue" format="integer|float" />
+
+        <!-- 최대범위 -->
+        <attr name="absoluteSlowMaxValue" format="integer|float" />
+
+        <!-- 슬로우 모션 설정-->
+        <attr name="slowMotion" format="boolean" />
+
+        <!-- the step value -->
+        <attr name="step" format="integer|float" />
+
+        <!-- show the labels on the right and left-->
+        <attr name="showLabels" format="boolean" />
+
+        <!-- show the currently selected value above each thumb (defaults to true) -->
+        <attr name="valuesAboveThumbs" format="boolean" />
+
+        <!-- padding on either side on the slider -->
+        <attr name="internalPadding" format="dimension" />
+
+        <!-- the height of the bar -->
+        <attr name="barHeight" format="dimension" />
+
+        <!-- the color of the bar that is not selected -->
+        <attr name="defaultColor" format="color" />
+
+        <!-- the color of the bar that is selected -->
+        <attr name="activeColor" format="color" />
+
+        <!-- the color of the text above thumbs -->
+        <attr name="textAboveThumbsColor" format="color" />
+
+        <!-- Thumb Drawable 설정-->
+        <attr name="thumbLeftNormal" format="reference" />
+        <attr name="thumbLeftPressed" format="reference" />
+        <attr name="thumbLeftDisabled" format="reference" />
+
+        <attr name="thumbRightNormal" format="reference" />
+        <attr name="thumbRightPressed" format="reference" />
+        <attr name="thumbRightDisabled" format="reference" />
+
+        <!-- SlowMotion Drawable 설정 -->
+        <attr name="slowThumbNormal" format="reference" />
+        <attr name="slowThumbPressed" format="reference" />
+        <attr name="slowMotionRangeColor" format="color" />
+
+    </declare-styleable>
+
+    <declare-styleable name="TickSeekBar">
+        <!-- maximum Tick Count-->
+        <attr name="tickCount" format="integer" />
+
+        <attr name="tickHeight" format="dimension" />
+
+        <!-- maximum Tick Child Count-->
+        <attr name="tickChildCount" format="integer" />
+
+        <attr name="tickChildHeight" format="dimension" />
+
+        <!-- the Width of the bar -->
+        <attr name="barWeight" format="dimension" />
+
+        <!-- the color of the bar that is not selected -->
+        <attr name="barDefaultColor" format="color" />
+
+        <!-- the color of the bar that is selected -->
+        <attr name="barActiveColor" format="color" />
+
+        <attr name="barActiveVisible" format="boolean" />
+
+        <!-- Thumb Drawable 설정-->
+        <attr name="thumbImage" format="reference" />
+        <attr name="thumbImagePressed" format="reference" />
+        <attr name="thumbRadius" format="dimension" />
+        <attr name="thumbColor" format="dimension|color" />
+        <attr name="thumbColorPressed" format="dimension|color" />
+
+    </declare-styleable>
+</resources>

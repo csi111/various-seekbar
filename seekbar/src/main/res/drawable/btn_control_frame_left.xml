@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/ic_control_frame_left" />
+    <item
+        android:drawable="@drawable/ic_control_frame_circle"
+        android:gravity="center_horizontal"
+        android:top="13dp" android:width="3dp" android:height="3dp" />
+    <item
+        android:drawable="@drawable/ic_control_frame_circle"
+        android:gravity="center_horizontal"
+        android:top="22dp" android:width="3dp" android:height="3dp" />
+    <item
+        android:drawable="@drawable/ic_control_frame_circle"
+        android:gravity="center_horizontal"
+        android:top="31dp" android:width="3dp" android:height="3dp"/>
+
+</layer-list>
