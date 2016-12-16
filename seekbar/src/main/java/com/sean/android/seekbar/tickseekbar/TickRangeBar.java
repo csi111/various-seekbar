@@ -8,6 +8,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -89,6 +90,7 @@ public class TickRangeBar extends AbstractSeekBar {
         init(context, attrs);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public TickRangeBar(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(context, attrs);
@@ -181,27 +183,27 @@ public class TickRangeBar extends AbstractSeekBar {
 
                 tickHeight = typedArray.getDimension(R.styleable.TickSeekBar_tickHeight, DEFAULT_TICK_HEIGHT_DP);
                 tickChildHeight = typedArray.getDimension(R.styleable.TickSeekBar_tickChildHeight, DEFAULT_CHILD_TICK_HEIGHT_DP);
-                defaultColor = typedArray.getColor(R.styleable.TickSeekBar_barDefaultColor, DEFAULT_COLOR);
-                activeColor = typedArray.getColor(R.styleable.TickSeekBar_barActiveColor, DEFAULT_ACTIVE_COLOR);
+                defaultColor = typedArray.getColor(R.styleable.TickSeekBar_tickBarColor, DEFAULT_COLOR);
+                activeColor = typedArray.getColor(R.styleable.TickSeekBar_tickBarActiveColor, DEFAULT_ACTIVE_COLOR);
 
-                lineWeight = typedArray.getDimension(R.styleable.TickSeekBar_barWeight, DEFAULT_SEEKBAR_WEIGHT);
+                lineWeight = typedArray.getDimension(R.styleable.TickSeekBar_tickBarWeight, DEFAULT_SEEKBAR_WEIGHT);
 
-                Drawable thumbImage = typedArray.getDrawable(R.styleable.TickSeekBar_thumbImage);
+                Drawable thumbImage = typedArray.getDrawable(R.styleable.TickSeekBar_tickBarThumbImage);
 
                 if (thumbImage != null) {
                     this.thumbImage = BitmapUtil.drawableToBitmap(thumbImage);
                 }
 
-                Drawable thumbPressedImage = typedArray.getDrawable(R.styleable.TickSeekBar_thumbImagePressed);
+                Drawable thumbPressedImage = typedArray.getDrawable(R.styleable.TickSeekBar_tickBarThumbImagePressed);
 
                 if (thumbPressedImage != null) {
                     this.thumbImagePressed = BitmapUtil.drawableToBitmap(thumbPressedImage);
                 }
 
-                thumbRadius = typedArray.getDimension(R.styleable.TickSeekBar_thumbRadius, DEFAULT_THUMB_RADIUS);
-                thumbColor = typedArray.getColor(R.styleable.TickSeekBar_thumbColor, DEFAULT_THUMB_COLOR);
-                thumbColorPressed = typedArray.getColor(R.styleable.TickSeekBar_thumbColorPressed, DEFAULT_THUMB_COLOR_PRESSED);
-                isActiveSeekbarVisible = typedArray.getBoolean(R.styleable.TickSeekBar_barActiveVisible, false);
+                thumbRadius = typedArray.getDimension(R.styleable.TickSeekBar_tickBarThumbRadius, DEFAULT_THUMB_RADIUS);
+                thumbColor = typedArray.getColor(R.styleable.TickSeekBar_tickBarThumbColor, DEFAULT_THUMB_COLOR);
+                thumbColorPressed = typedArray.getColor(R.styleable.TickSeekBar_tickBarThumbColorPressed, DEFAULT_THUMB_COLOR_PRESSED);
+                isActiveSeekbarVisible = typedArray.getBoolean(R.styleable.TickSeekBar_tickBarActiveVisible, false);
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
@@ -244,8 +246,8 @@ public class TickRangeBar extends AbstractSeekBar {
                     attemptClaimDrag();
 
 
-                    if (seekBarChangeListener != null) {
-                        seekBarChangeListener.onStartTrackingTouch(this);
+                    if (onTickSeekBarChangeListener != null) {
+                        onTickSeekBarChangeListener.onStartTrackingTouch(this);
                     }
 
                 }
@@ -269,11 +271,9 @@ public class TickRangeBar extends AbstractSeekBar {
                 trackTouchEvent(event);
                 releaseThumb(thumb);
                 attemptReleaseDrag();
-                if (seekBarChangeListener != null) {
-                    seekBarChangeListener.onStopTrackingTouch(this);
-                    if (seekBarChangeListener instanceof OnTickSeekBarChangeListener) {
-                        ((OnTickSeekBarChangeListener) seekBarChangeListener).onTickIndexChanged(this, currentThumbindex);
-                    }
+                if (onTickSeekBarChangeListener != null) {
+                    onTickSeekBarChangeListener.onStopTrackingTouch(this);
+                    onTickSeekBarChangeListener.onTickIndexChanged(this, currentThumbindex);
                 }
 
                 break;
@@ -295,8 +295,8 @@ public class TickRangeBar extends AbstractSeekBar {
             if (indexOutOfRange(currentThumbindex)) {
                 currentThumbindex = 0;
 
-                if (seekBarChangeListener != null && seekBarChangeListener instanceof OnTickSeekBarChangeListener) {
-                    ((OnTickSeekBarChangeListener) seekBarChangeListener).onTickIndexChanged(this, currentThumbindex);
+                if (onTickSeekBarChangeListener != null) {
+                    onTickSeekBarChangeListener.onTickIndexChanged(this, currentThumbindex);
                 }
             }
         }
@@ -313,8 +313,8 @@ public class TickRangeBar extends AbstractSeekBar {
             if (indexOutOfRange(currentThumbindex)) {
                 currentThumbindex = 0;
 
-                if (seekBarChangeListener != null && seekBarChangeListener instanceof OnTickSeekBarChangeListener) {
-                    ((OnTickSeekBarChangeListener) seekBarChangeListener).onTickIndexChanged(this, currentThumbindex);
+                if (onTickSeekBarChangeListener != null) {
+                    onTickSeekBarChangeListener.onTickIndexChanged(this, currentThumbindex);
                 }
             }
         }
@@ -406,8 +406,8 @@ public class TickRangeBar extends AbstractSeekBar {
             currentThumbindex = index;
 
             reDrawThumb();
-            if (seekBarChangeListener != null && seekBarChangeListener instanceof OnTickSeekBarChangeListener) {
-                ((OnTickSeekBarChangeListener) seekBarChangeListener).onTickIndexChanged(this, currentThumbindex);
+            if (onTickSeekBarChangeListener != null) {
+                onTickSeekBarChangeListener.onTickIndexChanged(this, currentThumbindex);
             }
         }
 

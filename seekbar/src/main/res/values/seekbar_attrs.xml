@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SeekBar">
+        <!-- the Width of the bar -->
+        <attr name="orientation" format="integer">
+            <enum name="horizontal" value="1" />
+            <enum name="vertical" value="2" />
+        </attr>
+
+        <!-- the color of the bar that is not selected -->
+        <attr name="barDefaultColor" format="color" />
+
+        <!-- the color of the bar that is selected -->
+        <attr name="barActiveColor" format="color" />
+
+        <attr name="barActiveVisible" format="boolean" />
+
+        <!-- Thumb Drawable 설정-->
+        <attr name="thumbSrc" format="reference" />
+        <attr name="thumbPressedSrc" format="reference" />
+        <attr name="thumbRadius" format="dimension" />
+        <attr name="thumbColor" format="dimension|color" />
+        <attr name="thumbPressedColor" format="dimension|color" />
+    </declare-styleable>
+
+
+    <declare-styleable name="TickSeekBar" parent="DefaultSeekBar">
+        <!-- maximum Tick Count-->
+        <attr name="tickCount" format="integer" />
+
+        <attr name="tickHeight" format="dimension" />
+
+        <!-- maximum Tick Child Count-->
+        <attr name="tickChildCount" format="integer" />
+
+        <attr name="tickChildHeight" format="dimension" />
+
+        <!-- the Width of the bar -->
+        <attr name="tickBarWeight" format="dimension" />
+
+        <!-- the color of the bar that is not selected -->
+        <attr name="tickBarColor" format="color" />
+
+        <!-- the color of the bar that is selected -->
+        <attr name="tickBarActiveColor" format="color" />
+
+        <attr name="tickBarActiveVisible" format="boolean" />
+        <!-- Thumb Drawable 설정-->
+        <attr name="tickBarThumbImage" format="reference" />
+        <attr name="tickBarThumbImagePressed" format="reference" />
+        <attr name="tickBarThumbRadius" format="dimension" />
+        <attr name="tickBarThumbColor" format="dimension|color" />
+        <attr name="tickBarThumbColorPressed" format="dimension|color" />
+    </declare-styleable>
+
+</resources>

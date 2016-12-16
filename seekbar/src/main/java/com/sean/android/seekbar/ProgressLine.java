@@ -25,7 +25,7 @@ public class ProgressLine extends Figure {
         this.leftXPosition = leftXPosition;
         this.rightXPosition = rightXPosition;
 
-        float strokeWidth = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, stroke, resources.getDisplayMetrics());
+        float strokeWidth = stroke;
 
 
         paint = new Paint();

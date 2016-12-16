@@ -1,6 +1,8 @@
 package com.sean.android.seekbar;
 
 import android.content.Context;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -16,8 +18,6 @@ public class AbstractSeekBar extends View {
     protected float downMotionX, downMotionY;
     protected float internalPad;
 
-    protected OnSeekBarChangeListener seekBarChangeListener;
-
     public AbstractSeekBar(Context context) {
         super(context);
     }
@@ -30,6 +30,7 @@ public class AbstractSeekBar extends View {
         super(context, attrs, defStyleAttr);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public AbstractSeekBar(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }

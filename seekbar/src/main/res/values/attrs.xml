@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+
     <declare-styleable name="FrameRangeSeekBar">
         <!-- 최소범위 -->
         <attr name="absoluteMinValue" format="integer|float" />
@@ -53,37 +55,6 @@
         <attr name="slowThumbNormal" format="reference" />
         <attr name="slowThumbPressed" format="reference" />
         <attr name="slowMotionRangeColor" format="color" />
-
-    </declare-styleable>
-
-    <declare-styleable name="TickSeekBar">
-        <!-- maximum Tick Count-->
-        <attr name="tickCount" format="integer" />
-
-        <attr name="tickHeight" format="dimension" />
-
-        <!-- maximum Tick Child Count-->
-        <attr name="tickChildCount" format="integer" />
-
-        <attr name="tickChildHeight" format="dimension" />
-
-        <!-- the Width of the bar -->
-        <attr name="barWeight" format="dimension" />
-
-        <!-- the color of the bar that is not selected -->
-        <attr name="barDefaultColor" format="color" />
-
-        <!-- the color of the bar that is selected -->
-        <attr name="barActiveColor" format="color" />
-
-        <attr name="barActiveVisible" format="boolean" />
-
-        <!-- Thumb Drawable 설정-->
-        <attr name="thumbImage" format="reference" />
-        <attr name="thumbImagePressed" format="reference" />
-        <attr name="thumbRadius" format="dimension" />
-        <attr name="thumbColor" format="dimension|color" />
-        <attr name="thumbColorPressed" format="dimension|color" />
 
     </declare-styleable>
 </resources>
